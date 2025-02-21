@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+	<groupId>com.awaitility</groupId>
+	<artifactId>service</artifactId>
+	<version>1.0</version>
+	<packaging>jar</packaging>
+
+	 <!-- Project Metadata -->
+	<name>awaitility.com</name>
+    	<description>Testing asynchronous systems.</description>
+    	<url>https://www.awaitility.com</url>
+
+	<!-- License Information -->
+    	<licenses>
+     	   <license>
+      	      <name>The Apache License, Version 2.0</name>
+              <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+       	   </license>
+  	</licenses>
+
+    	<!-- Developer Information -->
+    	<developers>
+		<developer>
+	    		<name>Jon Awaitility</name>
+	    		<email>contact@awaitility.com</email>
+	    		<organization>awaitility.com</organization>
+	    		<organizationUrl>https://awaitility.com</organizationUrl>
+		</developer>
+    	</developers>
+
+	<!-- Source Control Management -->
+	<scm>
+		<connection>scm:git:git://github.com/awaitilitycom/awaitility.com.git</connection>
+		<developerConnection>scm:git:ssh://github.com:awaitilitycom/awaitility.com.git</developerConnection>
+		<url>https://github.com/awaitilitycom/awaitility.com/tree/main</url>
+	</scm>
+	
+	<properties>
+		<maven.compiler.source>17</maven.compiler.source>
+		<maven.compiler.target>17</maven.compiler.target>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
+			<version>5.8.2</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-params</artifactId>
+			<version>5.8.2</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.assertj</groupId>
+			<artifactId>assertj-core</artifactId>
+			<version>3.23.1</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-failsafe-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.sonatype.central</groupId>
+				<artifactId>central-publishing-maven-plugin</artifactId>
+				<version>0.7.0</version>
+				<extensions>true</extensions>
+				<configuration>
+					<publishingServerId>central</publishingServerId>
+				</configuration>
+			</plugin>
+			<!-- Plugin do generowania Javadoc -->
+		        <plugin>
+		            <groupId>org.apache.maven.plugins</groupId>
+		            <artifactId>maven-javadoc-plugin</artifactId>
+		            <version>3.3.2</version>
+		            <executions>
+		                <execution>
+		                    <id>attach-javadocs</id>
+		                    <goals>
+		                        <goal>jar</goal>
+		                    </goals>
+		                </execution>
+		            </executions>
+		        </plugin>
+			<plugin>
+		            <groupId>org.apache.maven.plugins</groupId>
+		            <artifactId>maven-source-plugin</artifactId>
+		            <version>3.2.1</version>
+		            <executions>
+		                <execution>
+		                    <id>attach-sources</id>
+		                    <goals>
+		                        <goal>jar</goal>
+		                    </goals>
+		                </execution>
+		            </executions>
+		        </plugin>
+			<plugin>
+			    <groupId>org.apache.maven.plugins</groupId>
+			    <artifactId>maven-gpg-plugin</artifactId>
+			    <version>3.0.1</version>
+			    <executions>
+				<execution>
+				    <id>sign-artifacts</id>
+				    <phase>verify</phase>
+				    <goals>
+					<goal>sign</goal>
+				    </goals>
+				</execution>
+			    </executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>
